@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
+  <link rel="stylesheet" href="dist/summernote.css">
+  <title>summernote</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+  <script type="text/javascript" src="dist/summernote.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.summernote').summernote({
+        height: 300,
+        tabsize: 2
+      });
+    });
+  </script>
+  <script type="text/javascript">
+    function getText() {
+    var textBody = $(".note-editable").html();
+    document.getElementById("demo").innerHTML = textBody;
+}
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h4> <i class="note-icon-summernote"></i> Summernote
+      <span class="label label-info">Bootstrap v3.3.7</span>
+      <span class="label label-success">with Summernote Icons</span>
+    </h4>
+    <div class="summernote"><p>Hello World</p></div>
+    <button onclick="getText()" class="btn btn-default">Prevew</button>
+    <button onclick="getText()" href="/PostTopic.html"class="btn btn-default">Save</button>
+    <br>
+    <hr>
+    <pre id= "demo"></pre>
+  </div>
+</body>
+</html>

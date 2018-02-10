@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:security="http://www.springframework.org/schema/c" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="topic"
+          class="com.News.Entity.Topic">
+        <constructor-arg name="topicId" value="0"></constructor-arg>
+        <constructor-arg name="topicName" value="None header"></constructor-arg>
+        <constructor-arg name="topicBody" value="None Body"></constructor-arg>
+    </bean>
+
+
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <!-- Using JDBC Driver:  -->
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=NEWS"/>
+        <property name="username" value="sa"/>
+        <property name="password" value="Matkhaulagi"/>
+    </bean>
+
+    <bean id="topicShow" class="com.News.implement.TopicShowImp">
+
+    </bean>
+
+
+
+    <bean id="catalogueShow" class="com.News.implement.CatalogueShowimp">
+
+    </bean>
+
+    <bean id="topicDAO"
+          class="com.News.DAO.TopicDaoImp">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="userDao"
+          class="com.News.DAO.UserDaoImp">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="catalogueDAO"
+          class="com.News.DAO.CatalogueDaoImp">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="homeTopicImp" class="com.News.implement.HomeTopicImp">
+
+    </bean>
+    <!--scope="session"-->
+    <bean id="user" class="com.News.Entity.User" >
+        <!--<aop:scoped-proxy/>-->
+    </bean>
+
+
+    <bean id="listTopic" class="com.News.Entity.ListTopic">
+    </bean>
+    <bean id="catalogue" class="com.News.Entity.Catalogue">
+    </bean>
+
+    <context:annotation-config></context:annotation-config>
+</beans>
